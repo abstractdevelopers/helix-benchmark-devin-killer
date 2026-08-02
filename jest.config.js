@@ -7,6 +7,7 @@ const config = {
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^next/server$": "<rootDir>/__mocks__/next-server.js",
   },
 };
 
