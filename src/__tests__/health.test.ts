@@ -1,8 +1,13 @@
-import { GET as health } from "@/app/api/health/route";
-
-jest.mock("@/lib/prisma", () => ({
-  prisma: {},
+jest.mock("next/server", () => ({
+  NextResponse: {
+    json: (body) => ({
+      status: 200,
+      json: async () => body,
+    }),
+  },
 }));
+
+import { GET as health } from "@/app/api/health/route";
 
 describe("/api/health", () => {
   it("returns ok", async () => {
